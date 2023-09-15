@@ -1,0 +1,91 @@
+Question 1. Analyze the time complexity of the following Java code and suggest a way to improve it:
+
+    int sum = 0;
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= i; j++) {
+                sum++;
+            }
+        }
+
+ans: 
+    Here we have two loops for every i value of ourter loop we have to run the inner loop exactly that much time
+    for i value   1 
+                inner value will run one time
+    for i = 2   inner loop will 2 time like wise
+    for i = n   inner loop will run n times
+
+    if we find total time complexity then  we have to add how many time the inner loop run
+     = 1 + 2 + ... + n-1 + (n) = (n*n+1)/2 = O(n2)
+
+    Yes we can improve the time complexity of this code by running ourter loop and adding the value of i with the sum every tiem.
+
+Question 2: Find the value of T(2) for the recurrence relation T(n) = 3T(n-1) + 12n, given that T(0) = 5.
+
+ans: we have t(o) = 5
+    if we put n = 1 the we get t(1) = 3T(1-1) +12n
+                    t(1) = 15+12 = 27
+                    t(2) = 3t(2-1) + 12*2
+                        = 3t(1)+ 24
+                        3*27+24 = 105
+
+Question 3: Given a recurrence relation, solve it using a substitution method.
+Relation : T(n) = T(n - 1) + c
+
+ans: 
+    T(n-1) = T(n-2) + c
+    t(n) = T(n-2) + c+c
+    .
+    .
+    .
+    T(n) = T(n-k) + c*n where n-k = 1 and t(1) = 1
+    T(n) = 1 + c*n so the time complexity is O(n);
+
+Question 4: Given a recurrence relation:
+T(n) = 16T(n/4) + n2logn
+Find the time complexity of this relation using the master theorem.
+
+ans: 
+    a = 16
+    b= 4
+    k = 2
+    p= 1>-1
+    log4 16 = 2 == K
+    it is satisfies master's theorem case 2
+    Time complexity = O(n 2 log2 n)
+
+Question 5: Solve the following recurrence relation using recursion tree method T(n) = 2T(n/2) + n
+ans: 
+                    n
+                n/2     n/2
+            n/4     n/4     n/4
+            |       | |       |
+
+            n/2k    ...
+
+            for every level we have same cose that is n
+            n/2k = 1
+            2k = n
+            k = logn
+
+            for every level we have same cose n
+            here we have logn levels that is why total time complexity will be logn*n
+            i.e N*logN
+
+Question 6. T(n) = 2T(n/2) + K, Solve using Recurrence tree method.
+
+ans: 
+                                N
+                        n/2             n/2
+                n/4            n/4  n/4         n/4
+                |               |      |        |
+
+                here n/2K = 1 asume
+                n = 2k
+                k = logN here k = no of levels
+
+                at 1st node cost = K
+                for 2nd level cose = k+k = 2K
+                for 3rd level  cost = 2 power 2 = 4k
+                like wise at the last level ie logN level cost = 2power logN = n
+
+                after adding cost of all the levels we have time complexity as O(N)
