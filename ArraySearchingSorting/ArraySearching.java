@@ -151,5 +151,6 @@ class ArraySearching{
         System.out.println("No of one present in the above array is: "+ (ao.calOnes(arr)));
 
         System.out.println("Last occurance : " + ao.countOcc(arr, 23));
+        sc.close();
     }
 }
